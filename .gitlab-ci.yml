@@ -1,0 +1,14 @@
+stages:
+ - build  
+
+build_job:
+stage: build
+only:
+ - branches
+script:
+ -'cd ConsoleApp3'
+ - '"C:\Tools\Nuget\nuget.exe" restore'
+ - '"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\MSBuild.exe" ConsoleApp3.sln'
+artifacts:
+paths:
+ - 'ConsoleApp3\ConsoleApp3\bin\Debug\netcoreapp3.1\ConsoleApp3.exe'
